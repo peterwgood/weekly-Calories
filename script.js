@@ -9,6 +9,8 @@ let entries = [];
 
 const storage = window.localStorage;
 
+const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
 // Retrieve data from local storage
 const storedEntries = JSON.parse(storage.getItem('entries'));
 const storedCalories = parseInt(storage.getItem('calories'));
@@ -57,7 +59,7 @@ function updateList() {
   const listHtml = entries.map((entry, index) => {
     return `
       <li class="list-group-item">
-        Entry ${index + 1}: -${entry} calories
+        ${daysOfWeek[index]}: -${entry} calories
         <button class="delete-btn btn btn-warning btn-sm" data-index="${index}">Delete</button>
       </li>
     `;
